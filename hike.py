@@ -75,7 +75,7 @@ def map(data_visited, data_yet_to_visit):
         if row["Zip"] not in zip:
             zip.append(row["Zip"])
         else:
-            epsilon = epsilon + random.uniform(0, 1) / 100
+            epsilon = epsilon + random.uniform(0, 1) / 1000
 
         if country == "us":
             info = zips.loc[zips["Zip"] == int(row["Zip"])]
