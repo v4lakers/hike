@@ -1,3 +1,5 @@
+import random
+
 import folium
 from geopy.geocoders import Nominatim
 import pandas as pd
@@ -7,8 +9,6 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
-
-
 
 
 def getData():
@@ -33,10 +33,9 @@ def getData():
 
 
 def map(data_visited, data_yet_to_visit):
-
-
-    geolocator = Nominatim()
-    nomi = pgeocode.Nominatim('fr')
+    geolocator = Nominatim(timeout=30)
+    zips = pd.read_csv("zips.csv")
+    zip = []
 
     map = folium.Map(
         location=[34.9, -118.8863],
@@ -45,18 +44,51 @@ def map(data_visited, data_yet_to_visit):
     )
 
     for index, row in data_visited.iterrows():
-        loc = geolocator.geocode(row["Location"]+", "+row["Zip"])
+        country = row["Location"].split(", ")[-1].lower()
+
+        epsilon = 0
+        if row["Zip"] not in zip:
+            zip.append(row["Zip"])
+        else:
+            epsilon = epsilon + random.uniform(0, 1) / 10
+
+        if country == "us":
+            info = zips.loc[zips["Zip"] == int(row["Zip"])]
+            lat = info["Latitude"] + epsilon
+            lon = info["Longitude"] + epsilon
+
+        else:
+            loc = geolocator.geocode(row["Location"] + ", " + row["Zip"])
+            lat = loc.latitude
+            lon = loc.longitude
+
         text = row["Name"] + "\t" + "Date: " + str(row["Date"]) + "\t" + "Length: " + str(row["Length"])
-        folium.Marker(location=[loc.latitude, loc.longitude],
+        folium.Marker(location=[lat, lon],
                       icon=folium.Icon(color='blue'),
                       popup=folium.Popup(text, max_width=100)
                       ).add_to(map)
 
-    
     for index, row in data_yet_to_visit.iterrows():
-        loc = geolocator.geocode(row["Location"]+", "+row["Zip"])
+        country = row["Location"].split(", ")[-1].lower()
+
+        epsilon = 0
+        if row["Zip"] not in zip:
+            zip.append(row["Zip"])
+        else:
+            epsilon = epsilon + random.uniform(0, 1) / 10
+
+        if country == "us":
+            info = zips.loc[zips["Zip"] == int(row["Zip"])]
+            lat = info["Latitude"] + epsilon
+            lon = info["Longitude"] + epsilon
+
+        else:
+            loc = geolocator.geocode(row["Location"] + ", " + row["Zip"])
+            lat = loc.latitude
+            lon = loc.longitude
+
         text = row["Name"] + "\t" + "Length: " + str(row["Length"])
-        folium.Marker(location=[loc.latitude, loc.longitude],
+        folium.Marker(location=[lat, lon],
                       icon=folium.Icon(color='red'),
                       popup=folium.Popup(text, max_width=100)
                       ).add_to(map)
@@ -67,8 +99,6 @@ def map(data_visited, data_yet_to_visit):
 def main():
     data_visited, data_yet_to_visit = getData()
     map(data_visited, data_yet_to_visit)
-
-
 
 
 main()
