@@ -3,12 +3,9 @@ import random
 import folium
 from geopy.geocoders import Nominatim
 import pandas as pd
-import datetime
-import pgeocode
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from pydrive.auth import GoogleAuth
-from pydrive.drive import GoogleDrive
+
 
 
 def getData():
@@ -33,7 +30,7 @@ def getData():
 
 
 def map(data_visited, data_yet_to_visit):
-    geolocator = Nominatim(timeout=30)
+    #geolocator = Nominatim(timeout=30)
     zips = pd.read_csv("zips.csv")
     zip = []
 
@@ -58,9 +55,10 @@ def map(data_visited, data_yet_to_visit):
             lon = info["Longitude"] + epsilon
 
         else:
-            loc = geolocator.geocode(row["Location"] + ", " + row["Zip"])
-            lat = loc.latitude
-            lon = loc.longitude
+            #loc = geolocator.geocode(row["Location"] + ", " + row["Zip"])
+            #lat = loc.latitude
+            #lon = loc.longitude
+            pass
 
         text = row["Name"] + "\t" + "Date: " + str(row["Date"]) + "\t" + "Length: " + str(row["Length"])
         folium.Marker(location=[lat, lon],
@@ -83,9 +81,10 @@ def map(data_visited, data_yet_to_visit):
             lon = info["Longitude"] + epsilon
 
         else:
-            loc = geolocator.geocode(row["Location"] + ", " + row["Zip"])
-            lat = loc.latitude
-            lon = loc.longitude
+            #loc = geolocator.geocode(row["Location"] + ", " + row["Zip"])
+            #lat = loc.latitude
+            #lon = loc.longitude
+            pass
 
         text = row["Name"] + "\t" + "Length: " + str(row["Length"])
         folium.Marker(location=[lat, lon],
