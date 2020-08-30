@@ -47,7 +47,7 @@ def map(data_visited, data_yet_to_visit):
         if row["Zip"] not in zip:
             zip.append(row["Zip"])
         else:
-            epsilon = epsilon + random.uniform(0, 1) / 10
+            epsilon = epsilon + random.uniform(0, 1) / 100
 
         if country == "us":
             info = zips.loc[zips["Zip"] == int(row["Zip"])]
@@ -66,31 +66,6 @@ def map(data_visited, data_yet_to_visit):
                       popup=folium.Popup(text, max_width=100)
                       ).add_to(map)
 
-    for index, row in data_yet_to_visit.iterrows():
-        country = row["Location"].split(", ")[-1].lower()
-
-        epsilon = 0
-        if row["Zip"] not in zip:
-            zip.append(row["Zip"])
-        else:
-            epsilon = epsilon + random.uniform(0, 1) / 1000
-
-        if country == "us":
-            info = zips.loc[zips["Zip"] == int(row["Zip"])]
-            lat = info["Latitude"] + epsilon
-            lon = info["Longitude"] + epsilon
-
-        else:
-            #loc = geolocator.geocode(row["Location"] + ", " + row["Zip"])
-            #lat = loc.latitude
-            #lon = loc.longitude
-            pass
-
-        text = row["Name"] + "\t" + "Length: " + str(row["Length"])
-        folium.Marker(location=[lat, lon],
-                      icon=folium.Icon(color='red'),
-                      popup=folium.Popup(text, max_width=100)
-                      ).add_to(map)
 
     map.save("index.html")
 
