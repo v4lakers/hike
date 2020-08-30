@@ -11,7 +11,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 def getData():
     # Get Data
     scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-    creds = ServiceAccountCredentials.from_json_keyfile_name('HikeAnalytics-037073e9d447.json', scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name('hikeanalytics-3fed276449ce.json', scope)
     gc = gspread.authorize(creds)
 
     # Visited
