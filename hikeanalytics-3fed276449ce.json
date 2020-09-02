@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "hikeanalytics",
+  "private_key_id": "3fed276449ce287586da6ba89deca1af09a5410a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDDAFiELeC6UYrk\nVS5hGH6F6YiN/Et12eMfM22/RPJA2VZDNkRQ4NQMilxU69O9Wwm45CK+M3W3JzBt\nvWA8jT0FPshJYCLhyFiBIRIeorZ4L1DKb0chns+DqQIQRCDtn628yrt7jQllRacp\ns4rvVzYAzpRXN2TqZC7/WDbXQ0U503v8DVJiEu1W57CcVqxcnQClsED5uhAMVuAa\nrYDy2MgZDFGdxBkhJC7F3kiP0c5Qp1POwptNZXZjYl+osr6knQ/r+4Nm7JJYlfQG\nV6gZ46O/uKjnjuKtTdGbHh2/AatN7sFXisfPl6GpSkIu2F8q2p422c6JakcqksoE\ndWfg/3zPAgMBAAECggEAFugK/dfvzqM2iBTzgkdg0XU568fny1vBgNBHQ5EjTffZ\n2MJeqwuGDUURjI45TMSNc1ElPaeI2+94EmQNEn/a26tg1rG61z/0GZMbcErX2W1h\nda41sl7X7JTlX6jJH3DC9WrxNBXAtUtF1DG5j9z0RIr/xPEGYzxKgwdHRekqkByx\ng8xGFkNiFm+O2pRwpcNnX5YWn+bdbrs2XodjY2eUanPu9muZspQ4eMXwYJbaohsp\n0AuZdt75Zdu9CT1/N1AFei4tp/T1psog/Im72v1iayLyEnanoaMbKL5F1vUL8qeD\nj9fZMCXHNtmkVzlpLGB93jRCxRuH7U93raz0D2hCZQKBgQDzcieGL2vsfTh05PsB\nN/D5oDcxFCDw/C72YGN2wUU3eepMMkJd8UG/41ntuLEkfS37UiY/HY1cDefxYnsf\n07Gn+D0klQw6hyAYnARQTO3nYUYJnYD8igCaMZX/M22Su1orbWupC8uI2O5/248e\n2S7O0eb7nxoQ9iAld2S/IzH8NQKBgQDNDqbNoGOWXOWb+tGxfOQe/05CF8tSlfZL\nu8sudpP0DDVgmux8nXkm14egEpfirH3Jo/xLnHOE/8v4oAQ6nSLppk7teMD7TKd+\nt2YzewyZt+dIxHOvGBZfPOy9p3+U91sIoFXro1wfC2vDoGzebbb5npJ09nDU/ow/\nheDEQ1qNcwKBgBQT3Rie/pqhdS+G1wCxuWkNAqBElbbqRYFCT9GyfN/naSBhoMGY\nrSCDQp5tdgaZYFpy2v6nlEn8R53LznXAgs1klr5WoIyPKmF9NIne3lwP1LPkTogF\nZalR35oNhsLsOrKMMq3dcCrYIUtgMzyLEuYxv4gPBhpSAjK01xVAdNXlAoGBAKXO\nMxIRnnT2qLJ3HRdm5Q4rYhwPIVil6YFTV/c56mhrdr2mh5I7wrqljATjA+1FjHB/\nKIH6/22LaGKhAMpkRNaooylheqm4UbcklH8MACRLj7hHIUNzNqPLn6G6zm6lk/Zl\nrxPaA6MWmQyVq3IvRMSSc9ofaxzOtpimqBgKXi4BAoGBAJunQxAQPii45Um51BDI\nqnSMphvkaRCi1jOvNbgo+mEe0TAnjwJx89qJJF5Jvc+Ekie7FPjI1iFdKVKAMqwT\nmT+rddgPILLlhv0BIFaekYGiCVeSX6GXO+j4nm42TOCoTayUsxTHdgS83lP50Ivd\ncRQPdoauSf6Z94kA7cVCxvSb\n-----END PRIVATE KEY-----\n",
+  "client_email": "trippy@hikeanalytics.iam.gserviceaccount.com",
+  "client_id": "111293499063622382431",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/trippy%40hikeanalytics.iam.gserviceaccount.com"
+}
