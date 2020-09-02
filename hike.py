@@ -1,11 +1,11 @@
+import json
 import random
-
 import folium
-from geopy.geocoders import Nominatim
+import zipcodes
 import pandas as pd
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-
+import requests
 
 
 def getData():
@@ -30,13 +30,14 @@ def getData():
 
 
 def map(data_visited, data_yet_to_visit):
-    #geolocator = Nominatim(timeout=30)
+    # geolocator = Nominatim(timeout=30)
     zips = pd.read_csv("zips.csv")
     zip = []
+    counties = []
 
     map = folium.Map(
         location=[34.9, -118.8863],
-        tiles='cartodbpositron',
+        tiles='Stamen Terrain',
         zoom_start=6,
     )
 
@@ -46,6 +47,8 @@ def map(data_visited, data_yet_to_visit):
         epsilon = 0
         if row["Zip"] not in zip:
             zip.append(row["Zip"])
+            if zipcodes.matching(row["Zip"])[0]['county'] not in counties:
+                counties.append(zipcodes.matching(row["Zip"])[0]['county'])
         else:
             epsilon = epsilon + random.uniform(0, 1) / 100
 
@@ -55,19 +58,23 @@ def map(data_visited, data_yet_to_visit):
             lon = info["Longitude"] + epsilon
 
         else:
-            #loc = geolocator.geocode(row["Location"] + ", " + row["Zip"])
-            #lat = loc.latitude
-            #lon = loc.longitude
+            # loc = geolocator.geocode(row["Location"] + ", " + row["Zip"])
+            # lat = loc.latitude
+            # lon = loc.longitude
             pass
 
         text = row["Name"] + "\t" + "Date: " + str(row["Date"]) + "\t" + "Length: " + str(row["Length"])
         folium.Marker(location=[lat, lon],
-                      icon=folium.Icon(color='blue'),
+                      icon=folium.Icon(color='lightred'),
                       popup=folium.Popup(text, max_width=100)
                       ).add_to(map)
 
 
+
+
     map.save("index.html")
+
+
 
 
 def main():
