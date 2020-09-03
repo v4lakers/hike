@@ -73,7 +73,16 @@ def map(data_visited, data_yet_to_visit):
 
 
 
-    map.save("index.html")
+    map.save("temp.html")
+
+    with open("index.html", "a") as infile:
+        with open("temp.html", "r") as outfile:
+            for line in outfile:
+                infile.write(line)
+
+    infile.close()
+    outfile.close()
+
 
 
 def line_graph(metric, metric_name):
@@ -103,7 +112,8 @@ def line_graph(metric, metric_name):
             else:
                 plt.text(dates[i], values[i] + .4, str(values[i]))
 
-    plt.show()
+    plt.savefig('images/'+metric_name+".png")
+    plt.clf()
 
 
 def trailing(data):
@@ -117,7 +127,7 @@ def trailing(data):
     time = data.groupby(data['Date'].dt.to_period("M"))['Time'].sum().to_frame()
 
     line_graph(miles, "Miles")
-    line_graph(elev, "Elevation Gain")
+    line_graph(elev, "Elevation_Gain")
     line_graph(time, "Time")
 
 
@@ -125,7 +135,7 @@ def trailing(data):
 def main():
     data_visited, data_yet_to_visit = getData()
     map(data_visited, data_yet_to_visit)
-    #trailing(data_visited)
+    trailing(data_visited)
 
 
 main()
