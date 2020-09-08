@@ -1,5 +1,5 @@
 def adjust():
-    with open("script.js", "r") as infile:
+    with open("style/script.js", "r") as infile:
         data = infile.readlines()
 
     with open("test.js", "w") as outfile:
@@ -44,7 +44,7 @@ def getData():
 
 def map(data_visited, data_yet_to_visit):
     # geolocator = Nominatim(timeout=30)
-    zips = pd.read_csv("zips.csv")
+    zips = pd.read_csv("data/zips.csv")
     zip = []
     counties = []
 
@@ -85,7 +85,7 @@ def map(data_visited, data_yet_to_visit):
 
 
 
-    map.save("temp.html")
+    map.save("htmls/temp.html")
 
     with open("map.html", "w") as infile:
 
@@ -113,11 +113,11 @@ def line_graph(metric, metric_name):
         dates.append(row[0].strftime('%b-%Y'))
 
     if metric_name == "Miles":
-        with open("script.js", "r") as infile:
+        with open("style/script.js", "r") as infile:
             data = infile.readlines()
         infile.close()
 
-        with open("script.js", "w") as outfile:
+        with open("style/script.js", "w") as outfile:
             counter = 0
             for i in range(len(data)):
                 if "var labels2 =" in data[i]:
