@@ -16,7 +16,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_name('HikeAnalytics-037073e9
 gc = gspread.authorize(creds)
 
 
-zips = pd.read_csv("../data/zips.csv")
+zips = pd.read_csv("../zips/zips.csv")
 geolocator = Nominatim(timeout=30)
 
 # Yet to Visit
