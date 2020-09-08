@@ -1,13 +1,8 @@
-@font-face {
-    font-family: NationalPark;
-    src: url("/data/NationalPark/NationalPark-Regular.otf") format("opentype");
-}
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'NationalPark', sans-serif;
+  font-family: 'Droid Sans', sans-serif;
   outline: none;
 }
 ::-webkit-scrollbar {
@@ -22,9 +17,6 @@
   background-color: rgba(0, 0, 0, 0.3);
 }
 body {background-color: #2a2b3d}
-
-
-
 #contents {
   position: relative;
   transition: .3s;
@@ -150,7 +142,7 @@ body {background-color: #2a2b3d}
 }
 .side-nav .categories > li > a:after {
   content: "\f053";
-  font-family: 'NationalPark', serif;
+  font-family: fontAwesome;
   font-size: 11px;
   line-height: 1.8;
   float: right;
@@ -216,7 +208,7 @@ body {background-color: #2a2b3d}
   margin-top: 25px;
 }
 .welcome h2 {
-  font-family: 'NationalPark', serif;
+  font-family: Calibri;
   font-weight: 100;
   margin-top: 0
 }
@@ -280,7 +272,7 @@ body {background-color: #2a2b3d}
 }
 .admins .box > h3 {
   color: #ccc;
-  font-family: 'NationalPark', serif;
+  font-family: Calibri;
   font-weight: 300;
   margin-top: 0;
 }
@@ -355,66 +347,6 @@ body {background-color: #2a2b3d}
 .chrt3 .box {
   padding: 15px;
 }
-
-
-
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(1, 160px);
-  grid-gap: 80px;
-  margin: auto 0;
-}
-
-@media (min-width: 420px) and (max-width: 659px) {
-  .container {
-    grid-template-columns: repeat(2, 160px);
-  }
-}
-
-@media (min-width: 660px) and (max-width: 899px) {
-  .container {
-    grid-template-columns: repeat(3, 160px);
-  }
-}
-
-@media (min-width: 900px) {
-  .container {
-    grid-template-columns: repeat(4, 160px);
-  }
-}
-
-.container .box {
-  width: 100%;
-}
-
-.container .box h2 {
-  display: block;
-  text-align: center;
-  color: #fff;
-}
-
-.container .box .chart {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  font-size: 40px;
-  line-height: 160px;
-  height: 160px;
-  color: #fff;
-}
-
-.container .box canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  width: 100%;
-}
-
-
-
 
 
 
@@ -531,4 +463,6 @@ body {background-color: #2a2b3d}
   }
   .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {background-color: transparent !important}
 }
+
+
 
