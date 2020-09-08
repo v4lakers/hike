@@ -1,3 +1,11 @@
+import random
+import folium
+import zipcodes
+import pandas as pd
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+
+
 def adjust():
     with open("data/style/script.js", "r") as infile:
         data = infile.readlines()
@@ -7,18 +15,8 @@ def adjust():
         locations = []
         for line in data:
             if "// ChartActionHere" in line:
-                locations.append(counter+1)
+                locations.append(counter + 1)
             counter = counter + 1
-
-import json
-import random
-import folium
-import zipcodes
-import pandas as pd
-import gspread
-import matplotlib.pyplot as plt
-from oauth2client.service_account import ServiceAccountCredentials
-import requests
 
 
 def getData():
@@ -42,13 +40,12 @@ def getData():
     return data_visited, data_yet_to_visit
 
 
-def map(data_visited, data_yet_to_visit):
-    # geolocator = Nominatim(timeout=30)
+def map(data_visited):
     zips = pd.read_csv("data/zips/zips.csv")
-    zip = []
+    unique_zips = []
     counties = []
 
-    map = folium.Map(
+    map_of_hikes = folium.Map(
         location=[34.9, -118.8863],
         tiles='Stamen Terrain',
         zoom_start=6,
@@ -59,8 +56,8 @@ def map(data_visited, data_yet_to_visit):
         country = row["Location"].split(", ")[-1].lower()
 
         epsilon = 0
-        if row["Zip"] not in zip:
-            zip.append(row["Zip"])
+        if row["Zip"] not in unique_zips:
+            unique_zips.append(row["Zip"])
             if zipcodes.matching(row["Zip"])[0]['county'] not in counties:
                 counties.append(zipcodes.matching(row["Zip"])[0]['county'])
         else:
@@ -81,26 +78,23 @@ def map(data_visited, data_yet_to_visit):
         folium.Marker(location=[lat, lon],
                       icon=folium.Icon(color='lightred'),
                       popup=folium.Popup(text, max_width=100)
-                      ).add_to(map)
+                      ).add_to(map_of_hikes)
 
-
-
-    map.save("htmls/temp.html")
+    map_of_hikes.save("temp.html")
 
     with open("map.html", "w") as infile:
 
-        with open("data/htmls/header.html", "r") as outfile1:
+        with open("header.html", "r") as outfile1:
             for line in outfile1:
                 infile.write(line)
 
-        with open("data/htmls/temp.html", "r") as outfile2:
+        with open("temp.html", "r") as outfile2:
             for line in outfile2:
                 infile.write(line)
 
     infile.close()
     outfile1.close()
     outfile2.close()
-
 
 
 def line_graph(metric, metric_name):
@@ -121,10 +115,10 @@ def line_graph(metric, metric_name):
             counter = 0
             for i in range(len(data)):
                 if "var labels2 =" in data[i]:
-                    data[counter] = "var labels2 = "+str(dates)+"\n"
+                    data[counter] = "var labels2 = " + str(dates) + "\n"
 
                 if "var data2 = " in data[i]:
-                    data[counter] = "var data2 = "+str(values)+"\n"
+                    data[counter] = "var data2 = " + str(values) + "\n"
 
                 outfile.write(data[i])
                 counter = counter + 1
@@ -137,13 +131,14 @@ def trailing(data):
     data["Elevation_Gain"] = pd.to_numeric(data["Elevation_Gain"])
     data["Time"] = pd.to_numeric(data["Time"])
 
-    miles  = data.groupby(data['Date'].dt.to_period("M"))['Length'].sum().to_frame()
+    miles = data.groupby(data['Date'].dt.to_period("M"))['Length'].sum().to_frame()
     elev = data.groupby(data['Date'].dt.to_period("M"))['Elevation_Gain'].sum().to_frame()
     time = data.groupby(data['Date'].dt.to_period("M"))['Time'].sum().to_frame()
 
     line_graph(miles, "Miles")
     line_graph(elev, "Elevation_Gain")
     line_graph(time, "Time")
+
 
 def sums(data):
     miles = round(pd.to_numeric(data["Length"]).sum(), 1)
@@ -156,35 +151,27 @@ def sums(data):
     infile.close()
 
     with open("index.html", "w") as outfile:
-        for i in range(len(data)-1):
-            if ">Miles</p>" in data[i+1]:
-                data[i] = "<h3>"+str(miles)+"</h3>"+"\n"
-            if ">Elevation Gain</p>" in data[i+1]:
-                data[i] = "<h3>"+str(elevation)+"</h3>"+"\n"
-            if ">Minutes</p>" in data[i+1]:
-                data[i] = "<h3>"+str(minutes)+"</h3>"+"\n"
-            if ">Hikes</p>" in data[i+1]:
-                data[i] = "<h3>"+str(hikes)+"</h3>"+"\n"
+        for i in range(len(data) - 1):
+            if ">Miles</p>" in data[i + 1]:
+                data[i] = "<h3>" + str(miles) + "</h3>" + "\n"
+            if ">Elevation Gain</p>" in data[i + 1]:
+                data[i] = "<h3>" + str(elevation) + "</h3>" + "\n"
+            if ">Minutes</p>" in data[i + 1]:
+                data[i] = "<h3>" + str(minutes) + "</h3>" + "\n"
+            if ">Hikes</p>" in data[i + 1]:
+                data[i] = "<h3>" + str(hikes) + "</h3>" + "\n"
 
             outfile.write(data[i])
-        outfile.write(data[len(data)-1])
-
+        outfile.write(data[len(data) - 1])
 
     outfile.close()
 
 
-
-
-
-
-
-
 def main():
     data_visited, data_yet_to_visit = getData()
-    map(data_visited, data_yet_to_visit)
+    map(data_visited)
     trailing(data_visited)
     sums(data_visited)
 
 
 main()
-
