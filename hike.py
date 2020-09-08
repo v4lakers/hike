@@ -87,13 +87,19 @@ def map(data_visited, data_yet_to_visit):
 
     map.save("temp.html")
 
-    with open("map.html", "a") as infile:
-        with open("temp.html", "r") as outfile:
-            for line in outfile:
+    with open("map.html", "w") as infile:
+
+        with open("header.html", "r") as outfile1:
+            for line in outfile1:
+                infile.write(line)
+
+        with open("temp.html", "r") as outfile2:
+            for line in outfile2:
                 infile.write(line)
 
     infile.close()
-    outfile.close()
+    outfile1.close()
+    outfile2.close()
 
 
 
