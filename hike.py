@@ -1,3 +1,15 @@
+def adjust():
+    with open("script.js", "r") as infile:
+        data = infile.readlines()
+
+    with open("test.js", "w") as outfile:
+        counter = 0
+        locations = []
+        for line in data:
+            if "// ChartActionHere" in line:
+                locations.append(counter+1)
+            counter = counter + 1
+
 import json
 import random
 import folium
@@ -40,6 +52,7 @@ def map(data_visited, data_yet_to_visit):
         location=[34.9, -118.8863],
         tiles='Stamen Terrain',
         zoom_start=6,
+        zoom_control=True
     )
 
     for index, row in data_visited.iterrows():
@@ -72,10 +85,9 @@ def map(data_visited, data_yet_to_visit):
 
 
 
-
     map.save("temp.html")
 
-    with open("index.html", "a") as infile:
+    with open("map.html", "a") as infile:
         with open("temp.html", "r") as outfile:
             for line in outfile:
                 infile.write(line)
@@ -94,26 +106,23 @@ def line_graph(metric, metric_name):
         values.append(float(temp[0].split(" ")[-1]))
         dates.append(row[0].strftime('%b-%Y'))
 
-    plt.plot(dates, values, 'b-')
-    plt.ylabel(metric_name)
-    plt.xlabel("Month")
-    plt.xticks(rotation=45)
-    plt.title("Hiked " + metric_name + " vs Months")
+    if metric_name == "Miles":
+        with open("script.js", "r") as infile:
+            data = infile.readlines()
+        infile.close()
 
-    for i in range(len(dates)):
-        if i == 0:
-            plt.text(dates[i], values[i] - .4, str(values[i]))
-        elif i == len(dates) - 1:
-            plt.text(dates[i], values[i] + .4, str(values[i]))
+        with open("script.js", "w") as outfile:
+            counter = 0
+            for i in range(len(data)):
+                if "var labels2 =" in data[i]:
+                    data[counter] = "var labels2 = "+str(dates)+"\n"
 
-        else:
-            if values[i + 1] > values[i]:
-                plt.text(dates[i], values[i] - .4, str(values[i]))
-            else:
-                plt.text(dates[i], values[i] + .4, str(values[i]))
+                if "var data2 = " in data[i]:
+                    data[counter] = "var data2 = "+str(values)+"\n"
 
-    plt.savefig('images/'+metric_name+".png")
-    plt.clf()
+                outfile.write(data[i])
+                counter = counter + 1
+        outfile.close()
 
 
 def trailing(data):
@@ -130,12 +139,45 @@ def trailing(data):
     line_graph(elev, "Elevation_Gain")
     line_graph(time, "Time")
 
+def sums(data):
+    miles = round(pd.to_numeric(data["Length"]).sum(), 1)
+    elevation = round(pd.to_numeric(data["Elevation_Gain"]).sum(), 1)
+    minutes = round(pd.to_numeric(data["Time"]).sum(), 1)
+    hikes = len(data.index)
+
+    with open("index.html", "r") as infile:
+        data = infile.readlines()
+    infile.close()
+
+    with open("index.html", "w") as outfile:
+        for i in range(len(data)-1):
+            if ">Miles</p>" in data[i+1]:
+                data[i] = "<h3>"+str(miles)+"</h3>"+"\n"
+            if ">Elevation Gain</p>" in data[i+1]:
+                data[i] = "<h3>"+str(elevation)+"</h3>"+"\n"
+            if ">Minutes</p>" in data[i+1]:
+                data[i] = "<h3>"+str(minutes)+"</h3>"+"\n"
+            if ">Hikes</p>" in data[i+1]:
+                data[i] = "<h3>"+str(hikes)+"</h3>"+"\n"
+
+            outfile.write(data[i])
+
+
+    outfile.close()
+
+
+
+
+
+
 
 
 def main():
     data_visited, data_yet_to_visit = getData()
     map(data_visited, data_yet_to_visit)
     trailing(data_visited)
+    sums(data_visited)
 
 
 main()
+
