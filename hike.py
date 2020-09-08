@@ -89,11 +89,11 @@ def map(data_visited, data_yet_to_visit):
 
     with open("map.html", "w") as infile:
 
-        with open("header.html", "r") as outfile1:
+        with open("htmls/header.html", "r") as outfile1:
             for line in outfile1:
                 infile.write(line)
 
-        with open("temp.html", "r") as outfile2:
+        with open("htmls/temp.html", "r") as outfile2:
             for line in outfile2:
                 infile.write(line)
 
@@ -167,6 +167,7 @@ def sums(data):
                 data[i] = "<h3>"+str(hikes)+"</h3>"+"\n"
 
             outfile.write(data[i])
+        outfile.write(data[len(data)-1])
 
 
     outfile.close()

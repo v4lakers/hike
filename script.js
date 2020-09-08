@@ -69,7 +69,7 @@ $(function () {
   var myChart = new Chart(chart, {
     type: 'doughnut',
     data: {
-      labels: ["January"],
+      labels: ["Completed", "Remaining"],
       datasets: [{
         label: "Lost",
         fill: true,
