@@ -74,7 +74,7 @@ $(function () {
         label: "Lost",
         fill: true,
         lineTension: 0,
-        data: [45, 55],
+        data: [50.2, 49.8],
         backgroundColor: ["#FF6384", "#313448"],
         pointBorderColor: "#4bc0c0",
         borderColor: '#4bc0c0',
