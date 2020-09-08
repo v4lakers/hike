@@ -1,2 +1,1 @@
-# hike
-#### v4lakers.github.io/hike/
+# [hike](v4lakers.github.io/hike/)
