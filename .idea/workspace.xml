@@ -21,7 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="427b754f-2f63-4db4-a59c-8f3114afe00e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/style/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/style/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/style/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,11 +53,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/images" />
+      <recent name="$PROJECT_DIR$/data/style" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/data" />
       <recent name="$PROJECT_DIR$/style" />
-      <recent name="$PROJECT_DIR$/htmls" />
-      <recent name="$PROJECT_DIR$/random" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -82,7 +83,9 @@
       <workItem from="1599606752816" duration="257000" />
       <workItem from="1599607324535" duration="2357000" />
       <workItem from="1599689976471" duration="11711000" />
-      <workItem from="1599704770352" duration="741000" />
+      <workItem from="1599704770352" duration="1184000" />
+      <workItem from="1599760067509" duration="4488000" />
+      <workItem from="1599777991485" duration="3000000" />
     </task>
     <servers />
   </component>

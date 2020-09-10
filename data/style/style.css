@@ -467,5 +467,47 @@ body {background-color: #2a2b3d}
   .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {background-color: transparent !important}
 }
 
+.main-wrapper {
+  width: 90%;
+  max-width: 900px;
+  margin: 3em auto;
+  text-align: center;
+}
+
+
+.main-wrapper > img {
+  position: relative;
+  margin: 1.5em 3em;
+  width: 20em;
+  border-radius: 10px;
+  display: inline-block;
+  top: 0;
+  transition: all 0.2s ease;
+}
+.main-wrapper >img:before, .main-wrapper >img:after {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  background: inherit;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.main-wrapper >img:before {
+  transform: rotate(60deg);
+}
+.main-wrapper >img:after {
+  transform: rotate(-60deg);
+}
+.main-wrapper >img:hover {
+  top: -4px;
+}
+
+
+
 
 
