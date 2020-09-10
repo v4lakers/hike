@@ -50,6 +50,7 @@ $(function () {
 
 
   // Start chart
+  var chart = document.getElementById('myChart');
   Chart.defaults.global.animation.duration = 2000; // Animation duration
   Chart.defaults.global.title.display = false; // Remove title
   Chart.defaults.global.title.text = "Chart"; // Title
@@ -65,7 +66,6 @@ $(function () {
   Chart.defaults.scale.gridLines.color = 'rgba(255, 255, 255, 0.02)';
   Chart.defaults.global.legend.display = false;
 
-  var chart = document.getElementById('myChart1').getContext('2d');
   var myChart = new Chart(chart, {
     type: 'doughnut',
     data: {
@@ -81,16 +81,26 @@ $(function () {
         borderWidth: 2,
         showLine: true,
       }]
+    },
+    options: {
+      elements: {
+        center: {
+          text: "Please Work",
+          sidePadding: 60
+        }
+      }
     }
-  });
 
+
+
+  });
 
   // Chart2Here
 var labels2 = ['Aug-2019', 'Dec-2019', 'Jun-2020', 'Jul-2020', 'Aug-2020', 'Sep-2020']
 var data2 = [0.5, 3.5, 20.2, 10.0, 15.9, 4.1]
 
   var Chart2 = document.getElementById('myChart2').getContext('2d');
-  var mychart2 = new Chart(Chart2, {
+  var chart = new Chart(Chart2, {
     axisY: {
       text: "Miles"
     },
@@ -127,11 +137,10 @@ var data2 = [0.5, 3.5, 20.2, 10.0, 15.9, 4.1]
     }
   });
 
-
 var data3 = [{'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 20.0, 'y': 141.0, 'r': 0.5}], 'label': ['Way of the Mono Trail']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 150.0, 'y': 1500.0, 'r': 3.5}], 'label': ['Upper Yosemite Falls (half)']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 180.0, 'y': 1541.0, 'r': 6.1}], 'label': ['Sanborn Trail']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 355.0, 'y': 1260.0, 'r': 14.1}], 'label': ['Bridge Creek Trail to Maple Falls']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 56.0, 'y': 256.0, 'r': 1.8}], 'label': ['Coal Creek Double Loop']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 103.0, 'y': 1204.0, 'r': 3.9}], 'label': ['Bishop Peak ']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 100.0, 'y': 525.0, 'r': 4.3}], 'label': ['Zinfandel Trail']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 128.0, 'y': 771.0, 'r': 3.6}], 'label': ['Saratoga Gap Trail and Ridge Trail Loop']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 143.0, 'y': 1283.0, 'r': 5.0}], 'label': ['San Andreas Trail to Peterson Memorial Trail']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 101.0, 'y': 755.0, 'r': 3.3}], 'label': ['Lookout, Redwood, Orchard, Creek Trails']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 83.0, 'y': 390.0, 'r': 2.3}], 'label': ['Angel Falls via Willow Creek Trail']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 13.0, 'y': 141.0, 'r': 0.5}], 'label': ['Way of the Mono Trail']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 29.0, 'y': 194.0, 'r': 1.2}], 'label': ['Creekside Trail']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 101.0, 'y': 640.0, 'r': 4.1}], 'label': ['East Avenue and Ward Creek Trail Loop']}]
-  var labels3 = ['Way of the Mono Trail', 'Upper Yosemite Falls (half)', 'Sanborn Trail', 'Bridge Creek Trail to Maple Falls', 'Coal Creek Double Loop', 'Bishop Peak ', 'Zinfandel Trail', 'Saratoga Gap Trail and Ridge Trail Loop', 'San Andreas Trail to Peterson Memorial Trail', 'Lookout, Redwood, Orchard, Creek Trails', 'Angel Falls via Willow Creek Trail', 'Way of the Mono Trail', 'Creekside Trail', 'East Avenue and Ward Creek Trail Loop'];
+  var labels3 = ['Way of the Mono Trail', 'Upper Yosemite Falls (half)', 'Sanborn Trail', 'Bridge Creek Trail to Maple Falls', 'Coal Creek Double Loop', 'Bishop Peak ', 'Zinfandel Trail', 'Saratoga Gap Trail and Ridge Trail Loop', 'San Andreas Trail to Peterson Memorial Trail', 'Lookout, Redwood, Orchard, Creek Trails', 'Angel Falls via Willow Creek Trail', 'Way of the Mono Trail', 'Creekside Trail', 'East Avenue and Ward Creek Trail Loop']
   var Chart3 = document.getElementById('myChart3').getContext('2d');
-  var mychart3 = new Chart(Chart3, {
+  var chart = new Chart(Chart3, {
     axisY: {
       text: "Miles"
     },
