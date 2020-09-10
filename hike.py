@@ -167,11 +167,43 @@ def sums(data):
     outfile.close()
 
 
+
+def bubble(data):
+    datasets = []
+
+    for index, row in data.iterrows():
+        temp = {}
+        inside = {'backgroundColor': 'rgb(255, 99, 132)', 'data': 0, 'label': ""}
+        temp['x'] = float(row["Time"])
+        temp['y'] = float(row["Elevation_Gain"])
+        temp['r'] = float(row["Length"])
+        inside['data'] = [temp]
+        inside['label'] = [row["Name"]]
+        datasets.append(inside)
+
+
+    with open("data/style/script.js", "r") as infile:
+        data = infile.readlines()
+    infile.close()
+
+    with open("data/style/script.js", "w") as outfile:
+        for i in range(len(data)):
+            if "var data3 = " in data[i]:
+                data[i] = "var data3 = " + str(datasets) + "\n"
+            outfile.write(data[i])
+
+    outfile.close()
+
+
+
+
+
 def main():
     data_visited, data_yet_to_visit = getData()
     map(data_visited)
     trailing(data_visited)
     sums(data_visited)
+    bubble(data_visited)
 
 
 main()

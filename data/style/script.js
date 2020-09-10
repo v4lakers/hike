@@ -119,71 +119,52 @@ var data2 = [0.5, 3.5, 20.2, 10.0, 15.9, 4.1]
       }]
     },
 
-    // Configuration options
-    options: {
-        responsive: true,
-        legend: {
-            display: true,
-        },
-
-    },
-    centerText: {
-        display: true,
-        text: "280",
-        color: "#FFFFFF"
+   options: {
+    scales: {
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: "Miles"
+        }
+      }],
+      xAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: "Month"
+        }
+      }]
+    }
     }
   });
 
-  var chart = document.getElementById('chart3');
-  var myChart = new Chart(chart, {
-    type: 'line',
-    data: {
-      labels: ["One", "Two", "Three", "Four", "Five", 'Six', "Seven", "Eight"],
-      datasets: [{
-        label: "Lost",
-        fill: false,
-        lineTension: .5,
-        pointBorderColor: "transparent",
-        pointColor: "white",
-        borderColor: '#d9534f',
-        borderWidth: 0,
-        showLine: true,
-        data: [0, 40, 10, 30, 10, 20, 15, 20],
-        pointBackgroundColor: 'transparent',
-      },{
-        label: "Lost",
-        fill: false,
-        lineTension: .5,
-        pointColor: "white",
-        borderColor: '#5cb85c',
-        borderWidth: 0,
-        showLine: true,
-        data: [40, 0, 20, 10, 25, 15, 30, 0],
-        pointBackgroundColor: 'transparent',
-      },
-                 {
-                   label: "Lost",
-                   fill: false,
-                   lineTension: .5,
-                   pointColor: "white",
-                   borderColor: '#f0ad4e',
-                   borderWidth: 0,
-                   showLine: true,
-                   data: [10, 40, 20, 5, 35, 15, 35, 0],
-                   pointBackgroundColor: 'transparent',
-                 },
-                 {
-                   label: "Lost",
-                   fill: false,
-                   lineTension: .5,
-                   pointColor: "white",
-                   borderColor: '#337ab7',
-                   borderWidth: 0,
-                   showLine: true,
-                   data: [0, 30, 10, 25, 10, 40, 20, 0],
-                   pointBackgroundColor: 'transparent',
-                 }]
+var data3 = [{'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 20.0, 'y': 141.0, 'r': 0.5}], 'label': ['Way of the Mono Trail']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 150.0, 'y': 1500.0, 'r': 3.5}], 'label': ['Upper Yosemite Falls (half)']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 180.0, 'y': 1541.0, 'r': 6.1}], 'label': ['Sanborn Trail']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 355.0, 'y': 1260.0, 'r': 14.1}], 'label': ['Bridge Creek Trail to Maple Falls']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 56.0, 'y': 256.0, 'r': 1.8}], 'label': ['Coal Creek Double Loop']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 103.0, 'y': 1204.0, 'r': 3.9}], 'label': ['Bishop Peak ']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 100.0, 'y': 525.0, 'r': 4.3}], 'label': ['Zinfandel Trail']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 128.0, 'y': 771.0, 'r': 3.6}], 'label': ['Saratoga Gap Trail and Ridge Trail Loop']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 143.0, 'y': 1283.0, 'r': 5.0}], 'label': ['San Andreas Trail to Peterson Memorial Trail']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 101.0, 'y': 755.0, 'r': 3.3}], 'label': ['Lookout, Redwood, Orchard, Creek Trails']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 83.0, 'y': 390.0, 'r': 2.3}], 'label': ['Angel Falls via Willow Creek Trail']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 13.0, 'y': 141.0, 'r': 0.5}], 'label': ['Way of the Mono Trail']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 29.0, 'y': 194.0, 'r': 1.2}], 'label': ['Creekside Trail']}, {'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 101.0, 'y': 640.0, 'r': 4.1}], 'label': ['East Avenue and Ward Creek Trail Loop']}]
+  var labels3 = ['Way of the Mono Trail', 'Upper Yosemite Falls (half)', 'Sanborn Trail', 'Bridge Creek Trail to Maple Falls', 'Coal Creek Double Loop', 'Bishop Peak ', 'Zinfandel Trail', 'Saratoga Gap Trail and Ridge Trail Loop', 'San Andreas Trail to Peterson Memorial Trail', 'Lookout, Redwood, Orchard, Creek Trails', 'Angel Falls via Willow Creek Trail', 'Way of the Mono Trail', 'Creekside Trail', 'East Avenue and Ward Creek Trail Loop']
+  var Chart3 = document.getElementById('myChart3').getContext('2d');
+  var chart = new Chart(Chart3, {
+    axisY: {
+      text: "Miles"
     },
+    type: 'bubble',
+    data: {
+      datasets: data3
+    },
+    options: {
+    scales: {
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: "Elevation Gain"
+        }
+      }],
+      xAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: "Time"
+        }
+      }]
+    }
+    }
+
   });
 
 });
