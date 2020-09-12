@@ -95,9 +95,11 @@ $(function () {
 
   });
 
+
+
   // Chart2Here
-var labels2 = ['Aug-2019', 'Dec-2019', 'Jun-2020', 'Jul-2020', 'Aug-2020', 'Sep-2020']
-var data2 = [0.5, 3.5, 20.2, 10.0, 15.9, 4.1]
+  var labels2 = ['Aug-2019', 'Dec-2019', 'Jun-2020', 'Jul-2020', 'Aug-2020', 'Sep-2020']
+  var data2 = [0.5, 3.5, 20.2, 10.0, 15.9, 4.1]
 
   var Chart2 = document.getElementById('myChart2').getContext('2d');
   var chart = new Chart(Chart2, {
@@ -166,5 +168,6 @@ var data3 = [{'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'x': 20.0, 'y': 
     }
 
   });
+  var Chart5 = document.getElementById('myChart5').getContext('2d');
 
 });

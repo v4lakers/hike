@@ -44,6 +44,8 @@ def map(data_visited):
     zips = pd.read_csv("data/zips/zips.csv")
     unique_zips = []
     counties = []
+    cities = []
+    states = []
 
     map_of_hikes = folium.Map(
         location=[34.9, -118.8863],
@@ -96,6 +98,8 @@ def map(data_visited):
     outfile1.close()
     outfile2.close()
 
+    return len(unique_zips), len(counties)
+
 
 def line_graph(metric, metric_name):
     values = []
@@ -140,11 +144,13 @@ def trailing(data):
     line_graph(time, "Time")
 
 
-def sums(data):
+def sums(data, zips, counties):
     miles = round(pd.to_numeric(data["Length"]).sum(), 1)
     elevation = round(pd.to_numeric(data["Elevation_Gain"]).sum(), 1)
     minutes = round(pd.to_numeric(data["Time"]).sum(), 1)
     hikes = len(data.index)
+
+
 
     with open("index.html", "r") as infile:
         data = infile.readlines()
@@ -160,6 +166,10 @@ def sums(data):
                 data[i] = "<h3>" + str(minutes) + "</h3>" + "\n"
             if ">Hikes</p>" in data[i + 1]:
                 data[i] = "<h3>" + str(hikes) + "</h3>" + "\n"
+            if ">Zip Codes</p>" in data[i + 1]:
+                data[i] = "<h3>" + str(zips) + "</h3>" + "\n"
+            if ">Counties</p>" in data[i + 1]:
+                data[i] = "<h3>" + str(counties) + "</h3>" + "\n"
 
             outfile.write(data[i])
         outfile.write(data[len(data) - 1])
@@ -200,9 +210,9 @@ def bubble(data):
 
 def main():
     data_visited, data_yet_to_visit = getData()
-    map(data_visited)
+    zips, counties = map(data_visited)
     trailing(data_visited)
-    sums(data_visited)
+    sums(data_visited, zips, counties)
     bubble(data_visited)
 
 

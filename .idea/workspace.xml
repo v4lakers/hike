@@ -22,8 +22,10 @@
     <list default="true" id="427b754f-2f63-4db4-a59c-8f3114afe00e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/style/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/style/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/style/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hike.py" beforeDir="false" afterPath="$PROJECT_DIR$/hike.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp.html" beforeDir="false" afterPath="$PROJECT_DIR$/temp.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +87,8 @@
       <workItem from="1599689976471" duration="11711000" />
       <workItem from="1599704770352" duration="1184000" />
       <workItem from="1599760067509" duration="4488000" />
-      <workItem from="1599777991485" duration="3000000" />
+      <workItem from="1599777991485" duration="5848000" />
+      <workItem from="1599866929011" duration="7000" />
     </task>
     <servers />
   </component>
