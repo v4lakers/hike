@@ -118,11 +118,11 @@ def line_graph(metric, metric_name):
         with open("data/style/script.js", "w") as outfile:
             counter = 0
             for i in range(len(data)):
-                if "var labels2 =" in data[i]:
-                    data[counter] = "var labels2 = " + str(dates) + "\n"
+                if "var labels5 =" in data[i]:
+                    data[counter] = "var labels5 = " + str(dates) + "\n"
 
-                if "var data2 = " in data[i]:
-                    data[counter] = "var data2 = " + str(values) + "\n"
+                if "var data5 = " in data[i]:
+                    data[counter] = "var data5 = " + str(values) + "\n"
 
                 outfile.write(data[i])
                 counter = counter + 1
@@ -180,16 +180,29 @@ def sums(data, zips, counties):
 
 def bubble(data):
     datasets = []
-
+    mile_sum = round(pd.to_numeric(data["Length"]).sum(), 1)
+    miles = [mile_sum, 100-mile_sum]
+    hike_sum = len(data.index)
+    hikes = [hike_sum, 50-hike_sum]
+    data["Output"] = pd.to_numeric(data["Output"])
     for index, row in data.iterrows():
         temp = {}
         inside = {'backgroundColor': 'rgb(255, 99, 132)', 'data': 0, 'label': ""}
-        temp['x'] = float(row["Time"])
+        temp['r'] = float(row["Time"])/20
         temp['y'] = float(row["Elevation_Gain"])
-        temp['r'] = float(row["Length"])
+        temp['x'] = float(row["Length"])
         inside['data'] = [temp]
         inside['label'] = [row["Name"]]
         datasets.append(inside)
+
+
+    years = []
+    vals = []
+    bar = data.groupby(data['Date'].dt.to_period("Y"))['Output'].sum().to_frame()
+    for row in bar.iterrows():
+        temp = str(row[1]).split("\n")
+        vals.append(float(temp[0].split(" ")[-1]))
+        years.append(row[0].strftime('%Y'))
 
 
     with open("data/style/script.js", "r") as infile:
@@ -200,6 +213,15 @@ def bubble(data):
         for i in range(len(data)):
             if "var data3 = " in data[i]:
                 data[i] = "var data3 = " + str(datasets) + "\n"
+            if "var data1 = " in data[i]:
+                data[i] = "var data1 = " + str(miles) + "\n"
+            if "var data2 = " in data[i]:
+                data[i] = "var data2 = " + str(hikes) + "\n"
+            if "var labels6 = " in data[i]:
+                data[i] = "var labels6 = " + str(years) + "\n"
+            if "var data6 = " in data[i]:
+                data[i] = "var data6 = " + str(vals) + "\n"
+
             outfile.write(data[i])
 
     outfile.close()
