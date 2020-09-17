@@ -204,7 +204,7 @@ var data6 = [5321.0, 50089.0];
   var Chart6 = document.getElementById('myChart6').getContext('2d');
   var chart = new Chart(Chart6, {
     axisY: {
-      text: "Miles"
+      text: "Output (Miles*Elevation Gain)"
     },
     type: 'bar',
     data: {
@@ -226,13 +226,13 @@ var data6 = [5321.0, 50089.0];
       yAxes: [{
         scaleLabel: {
           display: true,
-          labelString: "Miles"
+          labelString: "Output"
         }
       }],
       xAxes: [{
         scaleLabel: {
           display: true,
-          labelString: "Month"
+          labelString: "Year"
         }
       }]
     }
