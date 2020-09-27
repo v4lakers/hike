@@ -185,14 +185,21 @@ def bubble(data):
     hike_sum = len(data.index)
     hikes = [hike_sum, 50-hike_sum]
     data["Output"] = pd.to_numeric(data["Output"])
+    max_miles = float(max(pd.to_numeric(data["Length"])))
+    max_elev = float(max(pd.to_numeric(data["Elevation_Gain"])))
     for index, row in data.iterrows():
         temp = {}
-        inside = {'backgroundColor': 'rgb(255, 99, 132)', 'data': 0, 'label': ""}
+        if max_miles == float(row["Length"]) or max_elev == float(row["Elevation_Gain"]):
+
+            inside = {'backgroundColor': 'rgb(75, 192, 192)', 'data': 0, 'label': ""}
+        else:
+            inside = {'backgroundColor': 'rgb(255, 99, 132)', 'data': 0, 'label': ""}
+
         temp['r'] = float(row["Time"])/20
         temp['y'] = float(row["Elevation_Gain"])
         temp['x'] = float(row["Length"])
         inside['data'] = [temp]
-        inside['label'] = [row["Name"]]
+        inside['label'] = [row["Name"]+" "+str(row["Date"].date())]
         datasets.append(inside)
 
 
