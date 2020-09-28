@@ -259,8 +259,7 @@ var data5 = [0.5, 3.5, 20.2, 10.0, 15.9, 13.0]
     data: {
       labels: labels5 ,
       datasets: [{
-        label: "2020",
-        backgroundColor: 'rgb(255, 99, 132)',
+        backgroundColor: '#4bc0c0',
         borderColor: 'rgb(255, 79, 116)',
         borderWidth: 2,
         pointBorderColor: false,
@@ -287,21 +286,20 @@ var data5 = [0.5, 3.5, 20.2, 10.0, 15.9, 13.0]
     }
     }
   });
-var labels6 = ['2019', '2020']
-var data6 = [5321.0, 55179.0]
+var labels6 = ['Aug-2019', 'Dec-2019', 'Jun-2020', 'Jul-2020', 'Aug-2020', 'Sep-2020']
+var data6 = [0.05, 0.48, 0.645, 0.33, 0.235, 0.37]
 
   var Chart6 = document.getElementById('myChart6').getContext('2d');
   var chart = new Chart(Chart6, {
     axisY: {
       text: "Output (Miles*Elevation Gain)"
     },
-    type: 'horizontalBar',
+    type: 'bar',
     data: {
       labels: labels6 ,
       datasets: [{
-        label: "2020",
         backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 79, 116)',
+        borderColor: '#4bc0c0',
         borderWidth: 2,
         pointBorderColor: false,
         data: data6,
@@ -315,13 +313,13 @@ var data6 = [5321.0, 55179.0]
       yAxes: [{
         scaleLabel: {
           display: true,
-          labelString: "Output"
+          labelString: "Efficiency"
         }
       }],
       xAxes: [{
         scaleLabel: {
           display: true,
-          labelString: "Year"
+          labelString: "Month"
         }
       }]
     }

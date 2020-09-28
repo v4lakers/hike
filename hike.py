@@ -110,7 +110,7 @@ def line_graph(metric, metric_name):
         values.append(float(temp[0].split(" ")[-1]))
         dates.append(row[0].strftime('%b-%Y'))
 
-    if metric_name == "Miles":
+    if metric_name == "Miles" or metric_name == "Efficiency":
         with open("data/style/script.js", "r") as infile:
             data = infile.readlines()
         infile.close()
@@ -118,11 +118,18 @@ def line_graph(metric, metric_name):
         with open("data/style/script.js", "w") as outfile:
             counter = 0
             for i in range(len(data)):
-                if "var labels5 =" in data[i]:
-                    data[counter] = "var labels5 = " + str(dates) + "\n"
+                if metric_name == "Miles":
+                    if "var labels5 =" in data[i]:
+                        data[counter] = "var labels5 = " + str(dates) + "\n"
 
-                if "var data5 = " in data[i]:
-                    data[counter] = "var data5 = " + str(values) + "\n"
+                    if "var data5 = " in data[i]:
+                        data[counter] = "var data5 = " + str(values) + "\n"
+                if metric_name == "Efficiency":
+                    if "var labels6 =" in data[i]:
+                        data[counter] = "var labels6 = " + str(dates) + "\n"
+
+                    if "var data6 = " in data[i]:
+                        data[counter] = "var data6 = " + str(values) + "\n"
 
                 outfile.write(data[i])
                 counter = counter + 1
@@ -133,15 +140,13 @@ def trailing(data):
     data['Date'] = pd.to_datetime(data['Date'])
     data["Length"] = pd.to_numeric(data["Length"])
     data["Elevation_Gain"] = pd.to_numeric(data["Elevation_Gain"])
+    data["Efficiency"] = pd.to_numeric(data["Efficiency"])
     data["Time"] = pd.to_numeric(data["Time"])
 
     miles = data.groupby(data['Date'].dt.to_period("M"))['Length'].sum().to_frame()
-    elev = data.groupby(data['Date'].dt.to_period("M"))['Elevation_Gain'].sum().to_frame()
-    time = data.groupby(data['Date'].dt.to_period("M"))['Time'].sum().to_frame()
-
+    eff = data.groupby(data['Date'].dt.to_period("M"))['Efficiency'].median().to_frame()
     line_graph(miles, "Miles")
-    line_graph(elev, "Elevation_Gain")
-    line_graph(time, "Time")
+    line_graph(eff, "Efficiency")
 
 
 def sums(data, zips, counties):
@@ -224,16 +229,10 @@ def bubble(data):
                 data[i] = "var data1 = " + str(miles) + "\n"
             if "var data2 = " in data[i]:
                 data[i] = "var data2 = " + str(hikes) + "\n"
-            if "var labels6 = " in data[i]:
-                data[i] = "var labels6 = " + str(years) + "\n"
-            if "var data6 = " in data[i]:
-                data[i] = "var data6 = " + str(vals) + "\n"
 
             outfile.write(data[i])
 
     outfile.close()
-
-
 
 
 

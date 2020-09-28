@@ -22,7 +22,10 @@
     <list default="true" id="427b754f-2f63-4db4-a59c-8f3114afe00e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/style/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/style/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/style/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hike.py" beforeDir="false" afterPath="$PROJECT_DIR$/hike.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp.html" beforeDir="false" afterPath="$PROJECT_DIR$/temp.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +98,7 @@
       <workItem from="1600709771885" duration="360000" />
       <workItem from="1601169612127" duration="5473000" />
       <workItem from="1601255796191" duration="2138000" />
+      <workItem from="1601332505897" duration="2385000" />
     </task>
     <servers />
   </component>
