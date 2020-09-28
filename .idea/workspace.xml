@@ -21,12 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="427b754f-2f63-4db4-a59c-8f3114afe00e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/badges.html" beforeDir="false" afterPath="$PROJECT_DIR$/badges.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/style/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/style/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hike.py" beforeDir="false" afterPath="$PROJECT_DIR$/hike.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/map.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp.html" beforeDir="false" afterPath="$PROJECT_DIR$/temp.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/style/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +93,8 @@
       <workItem from="1600457187280" duration="273000" />
       <workItem from="1600572382221" duration="259000" />
       <workItem from="1600709771885" duration="360000" />
-      <workItem from="1601169612127" duration="5023000" />
+      <workItem from="1601169612127" duration="5473000" />
+      <workItem from="1601255796191" duration="2138000" />
     </task>
     <servers />
   </component>
@@ -121,6 +118,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="508" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1599607604746" />
+    <state x="-1440" y="0" width="1440" height="900" key="dock-window-1" timestamp="1601257151339">
+      <screen x="-1440" y="0" width="1440" height="900" />
+    </state>
+    <state x="-1440" y="0" width="1440" height="900" key="dock-window-1/-1440.0.1440.900/0.0.2560.1440@-1440.0.1440.900" timestamp="1601257151339" />
     <state x="532" y="207" width="670" height="423" key="search.everywhere.popup" timestamp="1599588056170">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Advent+Pro');
+@import url('https://fonts.googleapis.com/css?family=Baloo+Tammudu+2');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Advent Pro', serif;
+  font-weight: lighter;
   outline: none;
 }
 ::-webkit-scrollbar {
@@ -209,8 +213,9 @@ body {background-color: #2a2b3d}
   margin-top: 25px;
 }
 .welcome h2 {
-  font-family: Calibri;
-  font-weight: 100;
+  font-family: "Advent Pro";
+  font-weight: bolder;
+  font-size: 42px;
   margin-top: 0
 }
 .welcome p {
@@ -510,6 +515,7 @@ body {background-color: #2a2b3d}
 .rwd-table {
   margin: 1em 0;
   min-width: 300px;
+  font-size: 16px;
 }
 .rwd-table tr {
   border-top: 1px solid #ddd;
