@@ -166,11 +166,11 @@ def sums(data, zips, counties):
     with open("index.html", "w") as outfile:
         for i in range(len(data) - 1):
             if ">Miles</p>" in data[i + 1]:
-                data[i] = "<h3>" + str(miles) + "</h3>" + "\n"
+                data[i] = "<h3>" + f"{miles:,}" + "</h3>" + "\n"
             if ">Elevation Gain</p>" in data[i + 1]:
-                data[i] = "<h3>" + str(elevation) + "</h3>" + "\n"
+                data[i] = "<h3>" + f"{elevation:,}" + "</h3>" + "\n"
             if ">Minutes</p>" in data[i + 1]:
-                data[i] = "<h3>" + str(minutes) + "</h3>" + "\n"
+                data[i] = "<h3>" + f"{minutes:,}" + "</h3>" + "\n"
             if ">Hikes</p>" in data[i + 1]:
                 data[i] = "<h3>" + str(hikes) + "</h3>" + "\n"
             if ">Zip Codes</p>" in data[i + 1]:
