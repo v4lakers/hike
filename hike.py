@@ -51,7 +51,8 @@ def map(data_visited):
         location=[34.9, -118.8863],
         tiles='Stamen Terrain',
         zoom_start=6,
-        zoom_control=True
+        zoom_control=True,
+        left=75
     )
 
     for index, row in data_visited.iterrows():
@@ -81,6 +82,7 @@ def map(data_visited):
                       icon=folium.Icon(color='lightred'),
                       popup=folium.Popup(text, max_width=100)
                       ).add_to(map_of_hikes)
+
 
     map_of_hikes.save("temp.html")
 
@@ -235,13 +237,11 @@ def bubble(data):
     outfile.close()
 
 
-
 def main():
     data_visited, data_yet_to_visit = getData()
     zips, counties = map(data_visited)
     trailing(data_visited)
     sums(data_visited, zips, counties)
     bubble(data_visited)
-
 
 main()
