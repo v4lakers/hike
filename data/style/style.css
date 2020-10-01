@@ -474,7 +474,6 @@ body {background-color: #2a2b3d}
 
 .main-wrapper {
   width: 90%;
-  max-width: 900px;
   margin: 3em auto;
   text-align: center;
 }
@@ -510,7 +509,10 @@ body {background-color: #2a2b3d}
 }
 .main-wrapper >img:hover {
   top: -4px;
+
 }
+
+
 
 .rwd-table {
   margin: 1em 0;
@@ -581,9 +583,7 @@ body {background-color: #2a2b3d}
   color: #FF6384;
 }
 
-.shift{
-  float: right;
-}
+
 
 
 
