@@ -314,7 +314,10 @@ var data6 = [0.83, 0.91, 0.78, 0.77, 0.83, 0.79, 0.87]
         scaleLabel: {
           display: true,
           labelString: "Efficiency"
-        }
+        },
+        ticks: {
+                suggestedMin: 0.5
+            }
       }],
       xAxes: [{
         scaleLabel: {
