@@ -248,7 +248,7 @@ var data3 = [{'backgroundColor': 'rgb(255, 99, 132)', 'data': [{'r': 1.0, 'y': 1
   });
 
 var labels5 = ['Aug-2019', 'Dec-2019', 'Jun-2020', 'Jul-2020', 'Aug-2020', 'Sep-2020', 'Oct-2020', 'Nov-2020']
-var data5 = [0.5, 3.5, 20.2, 10.0, 15.9, 13.0, 21.9, 9.2]
+var data5 = [0.5, 3.5, 20.2, 10.0, 15.9, 13.0, 21.9, 12.9]
 
   var Chart5 = document.getElementById('myChart5').getContext('2d');
   var chart = new Chart(Chart5, {
@@ -287,7 +287,7 @@ var data5 = [0.5, 3.5, 20.2, 10.0, 15.9, 13.0, 21.9, 9.2]
     }
   });
 var labels6 = ['Aug-2019', 'Dec-2019', 'Jun-2020', 'Jul-2020', 'Aug-2020', 'Sep-2020', 'Oct-2020', 'Nov-2020']
-var data6 = [0.83, 0.91, 0.78, 0.77, 0.83, 0.79, 0.9, 0.865]
+var data6 = [0.83, 0.91, 0.78, 0.77, 0.83, 0.79, 0.9, 0.86]
 
   var Chart6 = document.getElementById('myChart6').getContext('2d');
   var chart = new Chart(Chart6, {
