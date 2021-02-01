@@ -173,7 +173,7 @@ var data1 = [111.9, 88.1]
     options: {
       elements: {
         center: {
-          text: Math.round(data1[0])+"%",
+          text: Math.round((data1[0]/200)*100)+"%",
           color: '#5cb85c',
           sidePadding: 60
         }
