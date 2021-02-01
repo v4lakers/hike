@@ -188,7 +188,7 @@ def sums(data, zips, counties):
 def bubble(data):
     datasets = []
     mile_sum = round(pd.to_numeric(data["Length"]).sum(), 1)
-    miles = [mile_sum, 100-mile_sum]
+    miles = [mile_sum, 200-mile_sum]
     hike_sum = len(data.index)
     hikes = [hike_sum, 50-hike_sum]
     data["Output"] = pd.to_numeric(data["Output"])
